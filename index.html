@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SEJU Business | आपकी सफलता, हमारा लक्ष्य</title>
+  <meta name="description" content="SEJU Business - आधुनिक वेब डेवलपमेंट, ग्राफिक डिजाइन और डिजिटल ग्रोथ समाधान। आज ही संपर्क करें।">
+  <meta name="theme-color" content="#060c18">
+
+  <!-- Google Fonts for Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #060c18;
+      --card-bg: rgba(14, 25, 45, 0.7);
+      --card-border: rgba(56, 189, 248, 0.15);
+      --card-hover: rgba(56, 189, 248, 0.4);
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.25);
+      --whatsapp: #25d366;
+      --white: #f8fafc;
+      --muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', 'Hind', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.05) 0px, transparent 50%);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      background: rgba(6, 12, 24, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-btn {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 8px 16px;
+      border-radius: 999px;
+      transition: all 0.3s ease;
+      background: rgba(56, 189, 248, 0.05);
+    }
+
+    .nav-btn:hover {
+      background: var(--primary);
+      color: var(--bg);
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      filter: blur(50px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: clamp(34px, 6.5vw, 58px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    h1 .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 20%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 36px;
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #04101e;
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
+    }
+
+    /* Services Section */
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin: 0 auto 45px;
+      max-width: 580px;
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 30px 24px;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card:hover {
+      border-color: var(--card-hover);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 15px rgba(56, 189, 248, 0.1);
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 12px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* About Section */
+    .about {
+      background: rgba(10, 18, 33, 0.5);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .about-box {
+      max-width: 720px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-box p {
+      color: var(--muted);
+      font-size: 16px;
+      margin-top: 16px;
+    }
+
+    /* Contact Section */
+    .contact-box {
+      max-width: 650px;
+      margin: auto;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(14, 25, 45, 0.8) 0%, rgba(6, 12, 24, 0.9) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 22px;
+      padding: 45px 24px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin: 12px 0 28px;
+    }
+
+    .whatsapp-btn {
+      background: var(--whatsapp);
+      color: #03210d;
+      font-weight: 700;
+      padding: 14px 28px;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: center;
+      padding: 30px 15px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 60px 0 45px;
+      }
+      section {
+        padding: 45px 0;
+      }
+      .section-title {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="#home">SEJU<span>.</span></a>
+      <a class="nav-btn" href="#contact">संपर्क करें ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container">
+        <span class="tag">🚀 आपका भरोसा, हमारी पहचान</span>
+
+        <h1>
+          आपके बिजनेस को<br>
+          <span class="gradient-text">नई पहचान दें।</span>
+        </h1>
+
+        <p>
+          आपका स्वागत है SEJU Business में। हम आपकी जरूरतों को समझते हैं और आपके काम को नई ऊंचाइयों पर ले जाने के लिए आधुनिक समाधान देते हैं।
+        </p>
+
+        <div class="buttons">
+          <a href="#services" class="btn btn-primary">
+            सर्विसेज देखें
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            सीधे बात करें
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">हमारी सर्विसेज</h2>
+        <p class="section-subtitle">
+          हम आपके बिजनेस को डिजिटल दुनिया में तेजी से आगे बढ़ाने के लिए ये सेवाएं प्रदान करते हैं।
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon">💻</div>
+            <h3>वेबसाइट सर्विस</h3>
+            <p>
+              बिजनेस के लिए अल्ट्रा-फास्ट, आधुनिक और मोबाइल-फ्रेंडली वेबसाइट्स का निर्माण।
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎨</div>
+            <h3>डिजाइन सर्विस</h3>
+            <p>
+              ब्रांड लोगो, सोशल मीडिया ग्राफिक्स और प्रोफेशनल डिजिटल पहचान तैयार करना।
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📈</div>
+            <h3>बिजनेस सपोर्ट</h3>
+            <p>
+              बिजनेस को ऑनलाइन लाने, ऑटोमेशन और नए ग्राहकों तक पहुँचने में संपूर्ण मदद।
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+      <div class="container about-box">
+        <h2 class="section-title">हमारे बारे में</h2>
+        <p>
+          SEJU Business का एकमात्र उद्देश्य उद्यमियों और ग्राहकों को सरल, पारदर्शी और भरोसेमंद डिजिटल समाधान उपलब्ध कराना है।
+        </p>
+        <p>
+          हम गुणवत्ता और परिणाम को प्राथमिकता देते हैं ताकि आपका बिजनेस सिर्फ दिखे ही नहीं, बल्कि लगातार ग्रो भी करे।
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2 class="section-title">आइए, साथ मिलकर काम करें!</h2>
+          <p>
+            किसी भी सर्विस या सवाल के लिए सीधे WhatsApp पर मैसेज भेजें।
+          </p>
+
+          <!-- यहाँ अपना 10 अंकों का व्हाट्सएप नंबर डालें -->
+          <a
+            class="btn whatsapp-btn"
+            href="https://wa.me/918949260524"
+            target="_blank"
+            rel="noopener noreferrer">
+            💬 WhatsApp पर संपर्क करें
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> SEJU Business. सभी अधिकार सुरक्षित।</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
