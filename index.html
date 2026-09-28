@@ -229,7 +229,7 @@
       gap: 22px;
     }
 
-    /* Clickable Interactive Cards */
+    /* Interactive Cards */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -282,69 +282,189 @@
       margin-top: 15px;
       font-size: 13px;
       color: var(--primary);
-      font-weight: 600;
+      font-weight: 700;
+      background: rgba(56, 189, 248, 0.1);
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
     }
 
-    /* Modal / Popup Styles for Demos */
-    .modal-overlay {
+    /* FULLSCREEN DEMO MODAL */
+    .full-modal {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(4, 9, 18, 0.85);
-      backdrop-filter: blur(8px);
-      display: none;
-      align-items: center;
-      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      background: #060c18;
       z-index: 1000;
-      padding: 20px;
+      display: none;
+      flex-direction: column;
+      overflow-y: auto;
     }
 
-    .modal-overlay.active {
+    .full-modal.active {
       display: flex;
     }
 
-    .modal-content {
-      background: #0d1a2d;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 20px;
-      width: min(650px, 100%);
-      max-height: 88vh;
-      overflow-y: auto;
-      padding: 30px 24px;
-      position: relative;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-      animation: modalFadeIn 0.25s ease-out;
+    .modal-top-bar {
+      position: sticky;
+      top: 0;
+      background: rgba(6, 12, 24, 0.95);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 20;
+      backdrop-filter: blur(10px);
     }
 
-    @keyframes modalFadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    .modal-top-bar h3 {
+      font-size: 16px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .modal-close {
-      position: absolute;
-      top: 18px;
-      right: 20px;
-      font-size: 28px;
-      color: var(--muted);
-      cursor: pointer;
-      background: none;
+    .back-btn {
+      background: #ef4444;
+      color: #fff;
       border: none;
-      line-height: 1;
+      padding: 7px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
     }
 
-    .modal-close:hover {
-      color: var(--white);
+    /* LIVE DEMO: WEBSITE CONTAINER */
+    .live-web-container {
+      background: #0f172a;
+      min-height: 100%;
+      color: #fff;
+      padding-bottom: 60px;
     }
 
-    .demo-preview-box {
-      background: #07111f;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
+    .sample-nav {
+      background: #1e293b;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #334155;
+    }
+
+    .sample-hero {
+      text-align: center;
+      padding: 50px 20px 35px;
+      background: radial-gradient(circle at center, #1e3a8a 0%, #0f172a 70%);
+    }
+
+    .sample-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
       padding: 20px;
-      margin: 18px 0;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .sample-item {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .sample-item img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      background: #334155;
+    }
+
+    /* LIVE DEMO: DESIGN FILES SHOWCASE */
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      padding: 25px 20px;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    .design-file-card {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      overflow: hidden;
+      padding: 16px;
+    }
+
+    .file-preview {
+      height: 160px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    /* LIVE DEMO: BOT CHAT */
+    .bot-screen {
+      max-width: 480px;
+      margin: 25px auto;
+      background: #090e17;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      height: 480px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .bot-header {
+      background: #111e33;
+      padding: 14px;
+      border-bottom: 1px solid #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-messages {
+      flex-grow: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .msg {
+      max-width: 80%;
+      padding: 10px 14px;
+      font-size: 13.5px;
+      border-radius: 12px;
+    }
+
+    .msg-bot {
+      background: #1e293b;
+      align-self: flex-start;
+      border-bottom-left-radius: 2px;
+    }
+
+    .msg-user {
+      background: #0284c7;
+      color: #fff;
+      align-self: flex-end;
+      border-bottom-right-radius: 2px;
     }
 
     /* Pricing Section */
@@ -470,7 +590,7 @@
 
         <div class="buttons">
           <a href="#services" class="btn btn-primary">
-            लाइव डेमो देखें
+            लाइव डेमो चलाएं
           </a>
           <a href="#contact" class="btn btn-outline">
             सीधे बात करें
@@ -479,43 +599,43 @@
       </div>
     </section>
 
-    <!-- Services with Interactive Demos -->
+    <!-- Services Section -->
     <section id="services">
       <div class="container">
-        <h2 class="section-title">हमारी सर्विसेज</h2>
+        <h2 class="section-title">हमारी सर्विसेज और लाइव डेमो</h2>
         <p class="section-subtitle">
-          किसी भी कार्ड पर टैप करके उसका लाइव डेमो और सैंपल देखें।
+          नीचे किसी भी सर्विस पर क्लिक करें — अंदर असली वेबसाइट और फाइल्स लाइव काम करती दिखेंगी!
         </p>
 
         <div class="grid">
           <!-- Card 1: Website Demo -->
-          <article class="card interactive-card" onclick="openDemo('web')">
+          <article class="card interactive-card" onclick="openFullDemo('web')">
             <div class="card-icon">💻</div>
             <h3>वेबसाइट सर्विस</h3>
             <p>
-              बिजनेस के लिए अल्ट्रा-फास्ट, आधुनिक और मोबाइल-फ्रेंडली वेबसाइट्स का निर्माण।
+              अल्ट्रा-फास्ट, आधुनिक और मोबाइल-फ्रेंडली वेबसाइट्स का निर्माण।
             </p>
-            <div class="demo-hint">👉 लाइव डेमो देखें</div>
+            <div class="demo-hint">👉 क्लिक करके असली वेबसाइट खोलें</div>
           </article>
 
           <!-- Card 2: Design Demo -->
-          <article class="card interactive-card" onclick="openDemo('design')">
+          <article class="card interactive-card" onclick="openFullDemo('design')">
             <div class="card-icon">🎨</div>
             <h3>डिजाइन सर्विस</h3>
             <p>
-              ब्रांड लोगो, सोशल मीडिया ग्राफिक्स और प्रोफेशनल डिजिटल पहचान तैयार करना।
+              ब्रांड लोगो, सोशल मीडिया पोस्ट्स और वेक्टर फाइल्स तैयार करना।
             </p>
-            <div class="demo-hint">👉 सैंपल डिज़ाइन देखें</div>
+            <div class="demo-hint">👉 क्लिक करके डिजाइन फाइल्स देखें</div>
           </article>
 
           <!-- Card 3: Business Support Demo -->
-          <article class="card interactive-card" onclick="openDemo('support')">
+          <article class="card interactive-card" onclick="openFullDemo('support')">
             <div class="card-icon">📈</div>
             <h3>बिजनेस सपोर्ट</h3>
             <p>
-              बिजनेस को ऑनलाइन लाने, ऑटोमेशन और नए ग्राहकों तक पहुँचने में संपूर्ण मदद।
+              बिजनेस को ऑनलाइन लाने, 24/7 ऑटोमेशन और नए ग्राहकों तक पहुँचने में संपूर्ण मदद।
             </p>
-            <div class="demo-hint">👉 ऑटोमेशन डेमो देखें</div>
+            <div class="demo-hint">👉 क्लिक करके लाइव बॉट चलाएं</div>
           </article>
         </div>
       </div>
@@ -568,7 +688,7 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Section -->
     <section id="contact">
       <div class="container">
         <div class="contact-box">
@@ -580,7 +700,7 @@
           <!-- यहाँ अपना 10 अंकों का व्हाट्सएप नंबर डालें -->
           <a
             class="btn whatsapp-btn"
-            href="https://wa.me/91XXXXXXXXXX"
+            href="https://wa.me/918949260524"
             target="_blank"
             rel="noopener noreferrer">
             💬 WhatsApp पर संपर्क करें
@@ -590,110 +710,36 @@
     </section>
   </main>
 
-  <!-- Interactive Demo Popup Modal -->
-  <div class="modal-overlay" id="demoModal" onclick="closeOnOverlay(event)">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeDemo()">&times;</button>
-      
-      <!-- Container for dynamic demo content -->
-      <div id="demoBody"></div>
+  <!-- FULLSCREEN DEMO MODAL 1: REAL WEBSITE DEMO -->
+  <div class="full-modal" id="demoWeb">
+    <div class="modal-top-bar">
+      <h3>💻 लाइव डेमो: रेस्टोरेंट & बेकरी वेबसाइट</h3>
+      <button class="back-btn" onclick="closeFullDemo('demoWeb')">✕ वापस जाएं</button>
     </div>
-  </div>
-
-  <footer>
-    <p>© <span id="year"></span> SEJU Business. सभी अधिकार सुरक्षित।</p>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Demo Data
-    const demos = {
-      web: {
-        title: "💻 वेबसाइट सर्विस - लाइव डेमो",
-        desc: "हम इस तरह की साफ-सुथरी, सुपर-फास्ट और आधुनिक वेबसाइट तैयार करते हैं:",
-        html: `
-          <div class="demo-preview-box">
-            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1f3452; padding-bottom:8px; margin-bottom:12px;">
-              <span style="font-weight:700; color:#38bdf8;">샘플: Royal Cafe & Bakery</span>
-              <span style="font-size:12px; background:#14324f; padding:2px 8px; border-radius:10px; color:#38bdf8;">लाइव प्रीव्यू</span>
-            </div>
-            <p style="font-size:14px; margin-bottom:12px;">"शहर का सबसे बेहतरीन फ्रेश कॉफी और बेकरी अनुभव। ऑनलाइन मेन्यू देखें और ऑर्डर करें।"</p>
-            <div style="display:flex; gap:10px;">
-              <button style="background:#38bdf8; border:none; padding:6px 12px; border-radius:6px; font-weight:600; font-size:12px; color:#04101e;">मेन्यू देखें</button>
-              <button style="background:transparent; border:1px solid #526b8b; padding:6px 12px; border-radius:6px; font-size:12px; color:#fff;">टेबल बुक करें</button>
-            </div>
-          </div>
-          <p style="font-size:13px; color:var(--muted);">✓ 100% मोबाइल रिस्पॉन्सिव • ✓ 1 सेकंड में लोड होने वाली स्पीड • ✓ WhatsApp ऑर्डरिंग सुविधा</p>
-        `
-      },
-      design: {
-        title: "🎨 डिज़ाइन सर्विस - सैंपल शोकेस",
-        desc: "हम आपके ब्रांड के लिए ऐसा प्रीमियम और आकर्षक विजुअल पहचान तैयार करते हैं:",
-        html: `
-          <div class="demo-preview-box" style="text-align:center;">
-            <div style="width:70px; height:70px; margin:0 auto 12px; border-radius:16px; background:linear-gradient(135deg, #38bdf8, #818cf8); display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:800; color:#04101e; box-shadow:0 8px 20px rgba(56,189,248,0.3);">
-              S
-            </div>
-            <h4 style="font-size:18px; margin-bottom:4px;">SEJU Creative Studio</h4>
-            <p style="font-size:12px; color:var(--muted); margin-bottom:15px;">Modern Minimalist Logo Concept</p>
-            <div style="display:flex; justify-content:center; gap:8px;">
-              <span style="width:25px; height:25px; border-radius:50%; background:#38bdf8; display:inline-block;"></span>
-              <span style="width:25px; height:25px; border-radius:50%; background:#818cf8; display:inline-block;"></span>
-              <span style="width:25px; height:25px; border-radius:50%; background:#07111f; border:1px solid #38bdf8; display:inline-block;"></span>
-            </div>
-          </div>
-          <p style="font-size:13px; color:var(--muted);">✓ 4K हाई-रेसोल्यूशन फाइलें • ✓ सोशल मीडिया बैनर और रील्स थंबनेल • ✓ ओरिजिनल वेक्टर फाइल्स</p>
-        `
-      },
-      support: {
-        title: "📈 बिजनेस सपोर्ट - ऑटोमेशन डेमो",
-        desc: "ग्राहकों के सवालों के जवाब और ऑर्डर मैनेजमेंट को ऑटोमैटिक बनाएं:",
-        html: `
-          <div class="demo-preview-box">
-            <div style="display:flex; flex-direction:column; gap:8px;">
-              <div style="background:#13253d; padding:8px 12px; border-radius:12px 12px 12px 0; align-self:flex-start; max-width:80%; font-size:13px;">
-                👤 कस्टमर: "नमस्ते, मुझे आपकी सर्विसेज की जानकारी चाहिए।"
-              </div>
-              <div style="background:#1b3b5f; border:1px solid #38bdf8; padding:8px 12px; border-radius:12px 12px 0 12px; align-self:flex-end; max-width:85%; font-size:13px; color:#e0f2fe;">
-                🤖 AI सपोर्ट बॉट: "नमस्ते! SEJU Business में स्वागत है। हम 1) वेबसाइट 2) ग्राफिक डिज़ाइन 3) डिजिटल ग्रोथ प्रदान करते हैं। आप किसमें रुचि रखते हैं?"
-              </div>
-            </div>
-          </div>
-          <p style="font-size:13px; color:var(--muted);">✓ 24/7 ऑटोमैटिक रिप्लाई • ✓ लीड सीधे WhatsApp/Google Sheets पर सेव • ✓ जीरो मिसिंग ग्राहक</p>
-        `
-      }
-    };
-
-    function openDemo(type) {
-      const demo = demos[type];
-      if (!demo) return;
-
-      const body = `
-        <h3 style="font-size:20px; font-weight:700; color:var(--white); margin-bottom:8px;">${demo.title}</h3>
-        <p style="color:var(--muted); font-size:14px; margin-bottom:15px;">${demo.desc}</p>
-        ${demo.html}
-        <div style="margin-top:20px; text-align:right;">
-          <a href="#contact" onclick="closeDemo()" class="btn btn-primary" style="font-size:13px; padding:9px 18px;">
-            इसके लिए ऑर्डर दें ↗
-          </a>
+    <div class="live-web-container">
+      <div class="sample-nav">
+        <div style="font-weight:800; font-size:18px; color:#38bdf8;">ROYAL BAKERY.</div>
+        <div style="font-size:13px; background:#0284c7; padding:4px 10px; border-radius:6px;">ऑनलाइन खुला है</div>
+      </div>
+      <div class="sample-hero">
+        <h2 style="font-size:26px; margin-bottom:10px;">फ्रेश केक और स्वादिष्ट कॉफी ☕</h2>
+        <p style="font-size:14px; color:#94a3b8; max-width:400px; margin:auto;">हमारे मेन्यू से अपने पसंदीदा आइटम चुनें और सीधे ऑर्डर करें।</p>
+      </div>
+      <h3 style="text-align:center; margin:20px 0 10px; font-size:20px;">हमारा लोकप्रिय मेन्यू</h3>
+      <div class="sample-menu-grid">
+        <div class="sample-item">
+          <div style="font-size:40px; margin-bottom:10px;">🍰</div>
+          <h4>चॉकलेट पेस्ट्री</h4>
+          <p style="color:#94a3b8; font-size:13px; margin:6px 0;">डार्क बेल्जियन चॉकलेट के साथ</p>
+          <div style="font-weight:700; color:#38bdf8; margin-bottom:10px;">₹120</div>
+          <button style="background:#22c55e; color:#04101e; border:none; padding:6px 14px; border-radius:6px; font-weight:700; cursor:pointer;" onclick="alert('डेमो: यह आइटम कार्ट में जुड़ गया!')">कार्ट में जोड़ें +</button>
         </div>
-      `;
-
-      document.getElementById("demoBody").innerHTML = body;
-      document.getElementById("demoModal").classList.add("active");
-    }
-
-    function closeDemo() {
-      document.getElementById("demoModal").classList.remove("active");
-    }
-
-    function closeOnOverlay(e) {
-      if (e.target.id === "demoModal") {
-        closeDemo();
-      }
-    }
-  </script>
-
-</body>
-</html>
+        <div class="sample-item">
+          <div style="font-size:40px; margin-bottom:10px;">☕</div>
+          <h4>कोल्ड कॉफी विद आइसक्रीम</h4>
+          <p style="color:#94a3b8; font-size:13px; margin:6px 0;">फ्रेश रोस्टेड बीन्स और वेनिला</p>
+          <div style="font-weight:700; color:#38bdf8; margin-bottom:10px;">₹90</div>
+          <button style="background:#22c55e; color:#04101e; border:none; padding:6px 14px; border-radius:6px; font-weight:700; cursor:pointer;" onclick="alert('डेमो: यह आइटम कार्ट में जुड़ गया!')">कार्ट में जोड़ें +</button>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:30px;"
