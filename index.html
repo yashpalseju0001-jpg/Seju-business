@@ -18,7 +18,7 @@
       --bg: #060c18;
       --card-bg: rgba(14, 25, 45, 0.7);
       --card-border: rgba(56, 189, 248, 0.15);
-      --card-hover: rgba(56, 189, 248, 0.4);
+      --card-hover: rgba(56, 189, 248, 0.45);
       --primary: #38bdf8;
       --primary-glow: rgba(56, 189, 248, 0.25);
       --whatsapp: #25d366;
@@ -229,6 +229,7 @@
       gap: 22px;
     }
 
+    /* Clickable Interactive Cards */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -236,12 +237,17 @@
       padding: 28px 22px;
       backdrop-filter: blur(8px);
       transition: all 0.3s ease;
+      position: relative;
     }
 
-    .card:hover {
+    .interactive-card {
+      cursor: pointer;
+    }
+
+    .interactive-card:hover {
       border-color: var(--card-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--primary-glow);
     }
 
     .card-icon {
@@ -269,19 +275,80 @@
       line-height: 1.6;
     }
 
-    /* Process Steps */
-    .step-number {
-      font-size: 14px;
-      font-weight: 800;
+    .demo-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 15px;
+      font-size: 13px;
       color: var(--primary);
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    /* Modal / Popup Styles for Demos */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(4, 9, 18, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #0d1a2d;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 20px;
+      width: min(650px, 100%);
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 30px 24px;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      animation: modalFadeIn 0.25s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      font-size: 28px;
+      color: var(--muted);
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: var(--white);
+    }
+
+    .demo-preview-box {
+      background: #07111f;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 20px;
+      margin: 18px 0;
     }
 
     /* Pricing Section */
     .price-card {
-      position: relative;
       display: flex;
       flex-direction: column;
     }
@@ -323,62 +390,6 @@
 
     .price-features li span {
       color: var(--primary);
-    }
-
-    /* Testimonials / Customer Reviews */
-    .review-user {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .user-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(56, 189, 248, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: var(--primary);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-    }
-
-    .user-info h4 {
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .user-info span {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .stars {
-      color: #facc15;
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-
-    /* About Section */
-    .about {
-      background: rgba(10, 18, 33, 0.5);
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    .about-box {
-      max-width: 720px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .about-box p {
-      color: var(--muted);
-      font-size: 15.5px;
-      margin-top: 16px;
     }
 
     /* Contact Section */
@@ -458,8 +469,8 @@
         </p>
 
         <div class="buttons">
-          <a href="#pricing" class="btn btn-primary">
-            प्राइसिंग देखें
+          <a href="#services" class="btn btn-primary">
+            लाइव डेमो देखें
           </a>
           <a href="#contact" class="btn btn-outline">
             सीधे बात करें
@@ -468,186 +479,92 @@
       </div>
     </section>
 
-    <!-- Services -->
+    <!-- Services with Interactive Demos -->
     <section id="services">
       <div class="container">
         <h2 class="section-title">हमारी सर्विसेज</h2>
         <p class="section-subtitle">
-          व्यापार को आधुनिक और डिजिटल बनाने के लिए हमारी प्रमुख सेवाएं।
+          किसी भी कार्ड पर टैप करके उसका लाइव डेमो और सैंपल देखें।
         </p>
 
         <div class="grid">
-          <article class="card">
+          <!-- Card 1: Website Demo -->
+          <article class="card interactive-card" onclick="openDemo('web')">
             <div class="card-icon">💻</div>
-            <h3>वेबसाइट डेवलपमेंट</h3>
+            <h3>वेबसाइट सर्विस</h3>
             <p>
-              अल्ट्रा-फास्ट, मोबाइल-फ्रेंडली और आधुनिक डिजाइन वाली बिजनेस वेबसाइट्स।
+              बिजनेस के लिए अल्ट्रा-फास्ट, आधुनिक और मोबाइल-फ्रेंडली वेबसाइट्स का निर्माण।
             </p>
+            <div class="demo-hint">👉 लाइव डेमो देखें</div>
           </article>
 
-          <article class="card">
+          <!-- Card 2: Design Demo -->
+          <article class="card interactive-card" onclick="openDemo('design')">
             <div class="card-icon">🎨</div>
-            <h3>ग्राफिक व ब्रांड डिजाइन</h3>
+            <h3>डिजाइन सर्विस</h3>
             <p>
-              यूनिक ब्रांड लोगो, सोशल मीडिया पोस्ट्स और प्रोफेशनल डिजिटल पहचान।
+              ब्रांड लोगो, सोशल मीडिया ग्राफिक्स और प्रोफेशनल डिजिटल पहचान तैयार करना।
             </p>
+            <div class="demo-hint">👉 सैंपल डिज़ाइन देखें</div>
           </article>
 
-          <article class="card">
+          <!-- Card 3: Business Support Demo -->
+          <article class="card interactive-card" onclick="openDemo('support')">
             <div class="card-icon">📈</div>
-            <h3>बिजनेस ऑटोमेशन</h3>
+            <h3>बिजनेस सपोर्ट</h3>
             <p>
-              ऑनलाइन प्रेजेंस बढ़ाना और ग्राहकों से सीधे जुड़ने के लिए ऑटोमेशन सपोर्ट।
+              बिजनेस को ऑनलाइन लाने, ऑटोमेशन और नए ग्राहकों तक पहुँचने में संपूर्ण मदद।
             </p>
+            <div class="demo-hint">👉 ऑटोमेशन डेमो देखें</div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- NEW: Working Process Section -->
-    <section id="process" style="background: rgba(10, 18, 33, 0.3);">
+    <!-- Pricing Section -->
+    <section id="pricing" style="background: rgba(10, 18, 33, 0.4);">
       <div class="container">
-        <h2 class="section-title">हमारा काम करने का प्रोसेस</h2>
-        <p class="section-subtitle">
-          हम सिर्फ 3 आसान स्टेप्स में आपका काम पूरा करके देते हैं।
-        </p>
+        <h2 class="section-title">सरल प्राइसिंग प्लान</h2>
+        <p class="section-subtitle">अपनी आवश्यकता के अनुसार सही प्लान चुनें।</p>
 
         <div class="grid">
-          <div class="card">
-            <div class="step-number">स्टेप 01</div>
-            <h3>जरूरत को समझना</h3>
-            <p>हम आपके बिजनेस और लक्ष्यों पर चर्चा करते हैं ताकि सही प्लान बनाया जा सके।</p>
-          </div>
-
-          <div class="card">
-            <div class="step-number">स्टेप 02</div>
-            <h3>डिजाइन और निर्माण</h3>
-            <p>आधुनिक टूल्स और कोडिंग के ज़रिए आपके प्रोजेक्ट को प्रीमियम लुक दिया जाता है।</p>
-          </div>
-
-          <div class="card">
-            <div class="step-number">स्टेप 03</div>
-            <h3>फाइनल डिलीवरी व सपोर्ट</h3>
-            <p>प्रोजेक्ट को लाइव किया जाता है और आगे के लिए पूरा सपोर्ट उपलब्ध कराया जाता है।</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- NEW: Pricing Section -->
-    <section id="pricing">
-      <div class="container">
-        <h2 class="section-title">सरल और पारदर्शी प्राइसिंग</h2>
-        <p class="section-subtitle">
-          कोई छिपा हुआ शुल्क नहीं। अपनी आवश्यकतानुसार सही प्लान चुनें।
-        </p>
-
-        <div class="grid">
-          <!-- Starter -->
           <div class="card price-card">
             <h3>स्टार्टर प्लान</h3>
-            <p>शुरुआती बिजनेस और प्रोफाइल के लिए</p>
+            <p>छोटे व नए व्यवसायों के लिए</p>
             <div class="price-amount">₹999 <span style="font-size:14px; color:var(--muted); font-weight:normal;">/ से शुरू</span></div>
             <ul class="price-features">
-              <li><span>✓</span> सिंगल पेज लैंडिंग वेबसाइट</li>
+              <li><span>✓</span> 1-पेज मॉडर्न बिजनेस वेबसाइट</li>
               <li><span>✓</span> मोबाइल और टैबलेट फ्रेंडली</li>
               <li><span>✓</span> WhatsApp चैट इंटीग्रेशन</li>
-              <li><span>✓</span> बुनियादी SEO सेटअप</li>
             </ul>
-            <a href="#contact" class="btn btn-outline" style="width: 100%;">यह प्लान चुनें</a>
+            <a href="#contact" class="btn btn-outline" style="width: 100%;">यह चुनें</a>
           </div>
 
-          <!-- Professional (Popular) -->
           <div class="card price-card" style="border-color: var(--primary);">
             <div class="popular-badge">सबसे लोकप्रिय</div>
             <h3>प्रो बिजनेस</h3>
             <p>ग्रोथ कर रहे व्यवसायों के लिए</p>
             <div class="price-amount">₹2,499 <span style="font-size:14px; color:var(--muted); font-weight:normal;">/ से शुरू</span></div>
             <ul class="price-features">
-              <li><span>✓</span> मल्टी-पेज मॉडर्न वेबसाइट</li>
-              <li><span>✓</span> कस्टम डोमेन और होस्टिंग सेटअप</li>
-              <li><span>✓</span> हाई-स्पीड परफॉर्मेंस</li>
+              <li><span>✓</span> मल्टी-पेज वेबसाइट + ब्लॉग</li>
               <li><span>✓</span> फ्री लोगो और बैनर डिजाइन</li>
-              <li><span>✓</span> 1 महीना फ्री मेंटेनेंस</li>
+              <li><span>✓</span> हाई स्पीड और डोमेन सेटअप</li>
             </ul>
-            <a href="#contact" class="btn btn-primary" style="width: 100%;">यह प्लान चुनें</a>
+            <a href="#contact" class="btn btn-primary" style="width: 100%;">यह चुनें</a>
           </div>
 
-          <!-- Custom -->
           <div class="card price-card">
             <h3>कस्टम सॉल्यूशन</h3>
-            <p>विशिष्ट और बड़े प्रोजेक्ट्स के लिए</p>
+            <p>विशिष्ट सॉफ्टवेयर या ऑटोमेशन के लिए</p>
             <div class="price-amount">कस्टम</div>
             <ul class="price-features">
-              <li><span>✓</span> कस्टम वेब ऐप्लिकेशन / टूल्स</li>
-              <li><span>✓</span> API और डेटाबेस इंटीग्रेशन</li>
-              <li><span>✓</span> पूर्ण ब्रांडिंग पैकेज</li>
-              <li><span>✓</span> प्रायोरिटी 24/7 सपोर्ट</li>
+              <li><span>✓</span> कस्टम वेब ऐप्लिकेशन / टूल</li>
+              <li><span>✓</span> API और फुल ऑटोमेशन</li>
+              <li><span>✓</span> 24/7 प्रायोरिटी सपोर्ट</li>
             </ul>
-            <a href="#contact" class="btn btn-outline" style="width: 100%;">बातचीत करें</a>
+            <a href="#contact" class="btn btn-outline" style="width: 100%;">बात करें</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- NEW: Customer Reviews Section -->
-    <section id="reviews" style="background: rgba(10, 18, 33, 0.4);">
-      <div class="container">
-        <h2 class="section-title">क्लाइंट्स की राय</h2>
-        <p class="section-subtitle">
-          जिन लोगों ने हमारे साथ काम किया, उनका अनुभव कैसा रहा।
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <div class="stars">★★★★★</div>
-            <p>"SEJU Business ने हमारे बिजनेस के लिए बहुत ही शानदार वेबसाइट बनाई। काम समय पर हुआ और डिजाइन बहुत प्रीमियम है।"</p>
-            <div class="review-user">
-              <div class="user-avatar">R</div>
-              <div class="user-info">
-                <h4>राहुल शर्मा</h4>
-                <span>लोकल स्टोर ओनर</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="stars">★★★★★</div>
-            <p>"काम करने का तरीका बहुत प्रोफेशनल है। WhatsApp बटन और मोबाइल लेआउट से हमारे नए कस्टमर्स काफी बढ़े हैं।"</p>
-            <div class="review-user">
-              <div class="user-avatar">A</div>
-              <div class="user-info">
-                <h4>अमित पटेल</h4>
-                <span>डिजिटल क्रिएटर</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="stars">★★★★★</div>
-            <p>"किफायती कीमत में इतना बेहतरीन काम मिलना मुश्किल है। सपोर्ट और सर्विस दोनों बहुत बढ़िया हैं।"</p>
-            <div class="review-user">
-              <div class="user-avatar">V</div>
-              <div class="user-info">
-                <h4>विकास सिंह</h4>
-                <span>स्टार्टअप फाउंडर</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section class="about" id="about">
-      <div class="container about-box">
-        <h2 class="section-title">हमारे बारे में</h2>
-        <p>
-          SEJU Business का एकमात्र उद्देश्य उद्यमियों और छोटे-बड़े व्यवसायों को सरल, पारदर्शी और भरोसेमंद डिजिटल समाधान उपलब्ध कराना है।
-        </p>
-        <p>
-          हम गुणवत्ता और परिणाम को प्राथमिकता देते हैं ताकि आपका बिजनेस सिर्फ इंटरनेट पर दिखे ही नहीं, बल्कि लगातार नए ग्राहकों तक पहुंचे।
-        </p>
       </div>
     </section>
 
@@ -663,7 +580,7 @@
           <!-- यहाँ अपना 10 अंकों का व्हाट्सएप नंबर डालें -->
           <a
             class="btn whatsapp-btn"
-            href="https://wa.me/918949260524"
+            href="https://wa.me/91XXXXXXXXXX"
             target="_blank"
             rel="noopener noreferrer">
             💬 WhatsApp पर संपर्क करें
@@ -673,12 +590,109 @@
     </section>
   </main>
 
+  <!-- Interactive Demo Popup Modal -->
+  <div class="modal-overlay" id="demoModal" onclick="closeOnOverlay(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeDemo()">&times;</button>
+      
+      <!-- Container for dynamic demo content -->
+      <div id="demoBody"></div>
+    </div>
+  </div>
+
   <footer>
     <p>© <span id="year"></span> SEJU Business. सभी अधिकार सुरक्षित।</p>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Demo Data
+    const demos = {
+      web: {
+        title: "💻 वेबसाइट सर्विस - लाइव डेमो",
+        desc: "हम इस तरह की साफ-सुथरी, सुपर-फास्ट और आधुनिक वेबसाइट तैयार करते हैं:",
+        html: `
+          <div class="demo-preview-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1f3452; padding-bottom:8px; margin-bottom:12px;">
+              <span style="font-weight:700; color:#38bdf8;">샘플: Royal Cafe & Bakery</span>
+              <span style="font-size:12px; background:#14324f; padding:2px 8px; border-radius:10px; color:#38bdf8;">लाइव प्रीव्यू</span>
+            </div>
+            <p style="font-size:14px; margin-bottom:12px;">"शहर का सबसे बेहतरीन फ्रेश कॉफी और बेकरी अनुभव। ऑनलाइन मेन्यू देखें और ऑर्डर करें।"</p>
+            <div style="display:flex; gap:10px;">
+              <button style="background:#38bdf8; border:none; padding:6px 12px; border-radius:6px; font-weight:600; font-size:12px; color:#04101e;">मेन्यू देखें</button>
+              <button style="background:transparent; border:1px solid #526b8b; padding:6px 12px; border-radius:6px; font-size:12px; color:#fff;">टेबल बुक करें</button>
+            </div>
+          </div>
+          <p style="font-size:13px; color:var(--muted);">✓ 100% मोबाइल रिस्पॉन्सिव • ✓ 1 सेकंड में लोड होने वाली स्पीड • ✓ WhatsApp ऑर्डरिंग सुविधा</p>
+        `
+      },
+      design: {
+        title: "🎨 डिज़ाइन सर्विस - सैंपल शोकेस",
+        desc: "हम आपके ब्रांड के लिए ऐसा प्रीमियम और आकर्षक विजुअल पहचान तैयार करते हैं:",
+        html: `
+          <div class="demo-preview-box" style="text-align:center;">
+            <div style="width:70px; height:70px; margin:0 auto 12px; border-radius:16px; background:linear-gradient(135deg, #38bdf8, #818cf8); display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:800; color:#04101e; box-shadow:0 8px 20px rgba(56,189,248,0.3);">
+              S
+            </div>
+            <h4 style="font-size:18px; margin-bottom:4px;">SEJU Creative Studio</h4>
+            <p style="font-size:12px; color:var(--muted); margin-bottom:15px;">Modern Minimalist Logo Concept</p>
+            <div style="display:flex; justify-content:center; gap:8px;">
+              <span style="width:25px; height:25px; border-radius:50%; background:#38bdf8; display:inline-block;"></span>
+              <span style="width:25px; height:25px; border-radius:50%; background:#818cf8; display:inline-block;"></span>
+              <span style="width:25px; height:25px; border-radius:50%; background:#07111f; border:1px solid #38bdf8; display:inline-block;"></span>
+            </div>
+          </div>
+          <p style="font-size:13px; color:var(--muted);">✓ 4K हाई-रेसोल्यूशन फाइलें • ✓ सोशल मीडिया बैनर और रील्स थंबनेल • ✓ ओरिजिनल वेक्टर फाइल्स</p>
+        `
+      },
+      support: {
+        title: "📈 बिजनेस सपोर्ट - ऑटोमेशन डेमो",
+        desc: "ग्राहकों के सवालों के जवाब और ऑर्डर मैनेजमेंट को ऑटोमैटिक बनाएं:",
+        html: `
+          <div class="demo-preview-box">
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <div style="background:#13253d; padding:8px 12px; border-radius:12px 12px 12px 0; align-self:flex-start; max-width:80%; font-size:13px;">
+                👤 कस्टमर: "नमस्ते, मुझे आपकी सर्विसेज की जानकारी चाहिए।"
+              </div>
+              <div style="background:#1b3b5f; border:1px solid #38bdf8; padding:8px 12px; border-radius:12px 12px 0 12px; align-self:flex-end; max-width:85%; font-size:13px; color:#e0f2fe;">
+                🤖 AI सपोर्ट बॉट: "नमस्ते! SEJU Business में स्वागत है। हम 1) वेबसाइट 2) ग्राफिक डिज़ाइन 3) डिजिटल ग्रोथ प्रदान करते हैं। आप किसमें रुचि रखते हैं?"
+              </div>
+            </div>
+          </div>
+          <p style="font-size:13px; color:var(--muted);">✓ 24/7 ऑटोमैटिक रिप्लाई • ✓ लीड सीधे WhatsApp/Google Sheets पर सेव • ✓ जीरो मिसिंग ग्राहक</p>
+        `
+      }
+    };
+
+    function openDemo(type) {
+      const demo = demos[type];
+      if (!demo) return;
+
+      const body = `
+        <h3 style="font-size:20px; font-weight:700; color:var(--white); margin-bottom:8px;">${demo.title}</h3>
+        <p style="color:var(--muted); font-size:14px; margin-bottom:15px;">${demo.desc}</p>
+        ${demo.html}
+        <div style="margin-top:20px; text-align:right;">
+          <a href="#contact" onclick="closeDemo()" class="btn btn-primary" style="font-size:13px; padding:9px 18px;">
+            इसके लिए ऑर्डर दें ↗
+          </a>
+        </div>
+      `;
+
+      document.getElementById("demoBody").innerHTML = body;
+      document.getElementById("demoModal").classList.add("active");
+    }
+
+    function closeDemo() {
+      document.getElementById("demoModal").classList.remove("active");
+    }
+
+    function closeOnOverlay(e) {
+      if (e.target.id === "demoModal") {
+        closeDemo();
+      }
+    }
   </script>
 
 </body>
