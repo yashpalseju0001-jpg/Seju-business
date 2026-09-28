@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>SEJU Business | आपकी सफलता, हमारा लक्ष्य</title>
-  <meta name="description" content="SEJU Business - आधुनिक वेब डेवलपमेंट, ग्राफिक डिजाइन और डिजिटल ग्रोथ समाधान। आज ही संपर्क करें।">
+  <meta name="description" content="SEJU Business - आधुनिक वेब डेवलपमेंट, ग्राफिक डिजाइन, बिजनेस सपोर्ट और पारदर्शी प्राइसिंग।">
   <meta name="theme-color" content="#060c18">
 
-  <!-- Google Fonts for Modern Typography -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -69,7 +69,7 @@
     }
 
     .navbar {
-      min-height: 72px;
+      min-height: 70px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -80,9 +80,6 @@
       font-weight: 800;
       letter-spacing: -0.5px;
       color: var(--white);
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
 
     .logo span {
@@ -106,9 +103,9 @@
       box-shadow: 0 0 15px var(--primary-glow);
     }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
-      padding: 100px 0 80px;
+      padding: 85px 0 65px;
       text-align: center;
       position: relative;
     }
@@ -119,8 +116,8 @@
       top: 10%;
       left: 50%;
       transform: translateX(-50%);
-      width: 320px;
-      height: 320px;
+      width: 300px;
+      height: 300px;
       background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
       filter: blur(50px);
       z-index: -1;
@@ -138,15 +135,14 @@
       border-radius: 999px;
       font-size: 13px;
       font-weight: 600;
-      margin-bottom: 24px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 22px;
     }
 
     h1 {
-      font-size: clamp(34px, 6.5vw, 58px);
+      font-size: clamp(32px, 6.5vw, 56px);
       font-weight: 800;
       line-height: 1.15;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       letter-spacing: -1px;
     }
 
@@ -158,16 +154,16 @@
 
     .hero p {
       color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto 36px;
-      font-size: 17px;
+      max-width: 620px;
+      margin: 0 auto 32px;
+      font-size: 16px;
     }
 
     .buttons {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 14px;
     }
 
     .btn {
@@ -175,7 +171,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 13px 28px;
+      padding: 12px 26px;
       border-radius: 12px;
       font-weight: 600;
       font-size: 15px;
@@ -206,71 +202,164 @@
       transform: translateY(-2px);
     }
 
-    /* Services Section */
+    /* Section Styles */
     section {
-      padding: 70px 0;
+      padding: 65px 0;
     }
 
     .section-title {
       text-align: center;
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 700;
       letter-spacing: -0.5px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .section-subtitle {
       text-align: center;
       color: var(--muted);
-      margin: 0 auto 45px;
+      margin: 0 auto 40px;
       max-width: 580px;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+      gap: 22px;
     }
 
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 18px;
-      padding: 30px 24px;
+      padding: 28px 22px;
       backdrop-filter: blur(8px);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.3s ease;
     }
 
     .card:hover {
       border-color: var(--card-hover);
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 15px rgba(56, 189, 248, 0.1);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
 
     .card-icon {
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 22px;
       background: rgba(56, 189, 248, 0.08);
       border: 1px solid rgba(56, 189, 248, 0.2);
       border-radius: 12px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .card h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
+      font-size: 19px;
+      margin-bottom: 8px;
       font-weight: 700;
     }
 
     .card p {
       color: var(--muted);
-      font-size: 15px;
+      font-size: 14.5px;
       line-height: 1.6;
+    }
+
+    /* Process Steps */
+    .step-number {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Pricing Section */
+    .price-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      color: #04101e;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
+    .price-amount {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--white);
+      margin: 14px 0;
+    }
+
+    .price-features {
+      list-style: none;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .price-features li {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .price-features li span {
+      color: var(--primary);
+    }
+
+    /* Testimonials / Customer Reviews */
+    .review-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--primary);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .user-info h4 {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .user-info span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .stars {
+      color: #facc15;
+      font-size: 14px;
+      margin-bottom: 10px;
     }
 
     /* About Section */
@@ -288,7 +377,7 @@
 
     .about-box p {
       color: var(--muted);
-      font-size: 16px;
+      font-size: 15.5px;
       margin-top: 16px;
     }
 
@@ -300,20 +389,20 @@
       background: linear-gradient(180deg, rgba(14, 25, 45, 0.8) 0%, rgba(6, 12, 24, 0.9) 100%);
       border: 1px solid rgba(56, 189, 248, 0.2);
       border-radius: 22px;
-      padding: 45px 24px;
+      padding: 40px 22px;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     }
 
     .contact-box p {
       color: var(--muted);
-      margin: 12px 0 28px;
+      margin: 10px 0 25px;
     }
 
     .whatsapp-btn {
       background: var(--whatsapp);
       color: #03210d;
       font-weight: 700;
-      padding: 14px 28px;
+      padding: 13px 26px;
       box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
     }
 
@@ -325,20 +414,20 @@
     footer {
       border-top: 1px solid rgba(255, 255, 255, 0.06);
       text-align: center;
-      padding: 30px 15px;
+      padding: 26px 15px;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
     }
 
     @media (max-width: 600px) {
       .hero {
-        padding: 60px 0 45px;
+        padding: 55px 0 40px;
       }
       section {
-        padding: 45px 0;
+        padding: 42px 0;
       }
       .section-title {
-        font-size: 26px;
+        font-size: 25px;
       }
     }
   </style>
@@ -365,12 +454,12 @@
         </h1>
 
         <p>
-          आपका स्वागत है SEJU Business में। हम आपकी जरूरतों को समझते हैं और आपके काम को नई ऊंचाइयों पर ले जाने के लिए आधुनिक समाधान देते हैं।
+          आपका स्वागत है SEJU Business में। हम आपके काम को डिजिटल दुनिया में स्थापित करने के लिए आधुनिक और तेज़ समाधान प्रदान करते हैं।
         </p>
 
         <div class="buttons">
-          <a href="#services" class="btn btn-primary">
-            सर्विसेज देखें
+          <a href="#pricing" class="btn btn-primary">
+            प्राइसिंग देखें
           </a>
           <a href="#contact" class="btn btn-outline">
             सीधे बात करें
@@ -384,33 +473,167 @@
       <div class="container">
         <h2 class="section-title">हमारी सर्विसेज</h2>
         <p class="section-subtitle">
-          हम आपके बिजनेस को डिजिटल दुनिया में तेजी से आगे बढ़ाने के लिए ये सेवाएं प्रदान करते हैं।
+          व्यापार को आधुनिक और डिजिटल बनाने के लिए हमारी प्रमुख सेवाएं।
         </p>
 
         <div class="grid">
           <article class="card">
             <div class="card-icon">💻</div>
-            <h3>वेबसाइट सर्विस</h3>
+            <h3>वेबसाइट डेवलपमेंट</h3>
             <p>
-              बिजनेस के लिए अल्ट्रा-फास्ट, आधुनिक और मोबाइल-फ्रेंडली वेबसाइट्स का निर्माण।
+              अल्ट्रा-फास्ट, मोबाइल-फ्रेंडली और आधुनिक डिजाइन वाली बिजनेस वेबसाइट्स।
             </p>
           </article>
 
           <article class="card">
             <div class="card-icon">🎨</div>
-            <h3>डिजाइन सर्विस</h3>
+            <h3>ग्राफिक व ब्रांड डिजाइन</h3>
             <p>
-              ब्रांड लोगो, सोशल मीडिया ग्राफिक्स और प्रोफेशनल डिजिटल पहचान तैयार करना।
+              यूनिक ब्रांड लोगो, सोशल मीडिया पोस्ट्स और प्रोफेशनल डिजिटल पहचान।
             </p>
           </article>
 
           <article class="card">
             <div class="card-icon">📈</div>
-            <h3>बिजनेस सपोर्ट</h3>
+            <h3>बिजनेस ऑटोमेशन</h3>
             <p>
-              बिजनेस को ऑनलाइन लाने, ऑटोमेशन और नए ग्राहकों तक पहुँचने में संपूर्ण मदद।
+              ऑनलाइन प्रेजेंस बढ़ाना और ग्राहकों से सीधे जुड़ने के लिए ऑटोमेशन सपोर्ट।
             </p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Working Process Section -->
+    <section id="process" style="background: rgba(10, 18, 33, 0.3);">
+      <div class="container">
+        <h2 class="section-title">हमारा काम करने का प्रोसेस</h2>
+        <p class="section-subtitle">
+          हम सिर्फ 3 आसान स्टेप्स में आपका काम पूरा करके देते हैं।
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <div class="step-number">स्टेप 01</div>
+            <h3>जरूरत को समझना</h3>
+            <p>हम आपके बिजनेस और लक्ष्यों पर चर्चा करते हैं ताकि सही प्लान बनाया जा सके।</p>
+          </div>
+
+          <div class="card">
+            <div class="step-number">स्टेप 02</div>
+            <h3>डिजाइन और निर्माण</h3>
+            <p>आधुनिक टूल्स और कोडिंग के ज़रिए आपके प्रोजेक्ट को प्रीमियम लुक दिया जाता है।</p>
+          </div>
+
+          <div class="card">
+            <div class="step-number">स्टेप 03</div>
+            <h3>फाइनल डिलीवरी व सपोर्ट</h3>
+            <p>प्रोजेक्ट को लाइव किया जाता है और आगे के लिए पूरा सपोर्ट उपलब्ध कराया जाता है।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Pricing Section -->
+    <section id="pricing">
+      <div class="container">
+        <h2 class="section-title">सरल और पारदर्शी प्राइसिंग</h2>
+        <p class="section-subtitle">
+          कोई छिपा हुआ शुल्क नहीं। अपनी आवश्यकतानुसार सही प्लान चुनें।
+        </p>
+
+        <div class="grid">
+          <!-- Starter -->
+          <div class="card price-card">
+            <h3>स्टार्टर प्लान</h3>
+            <p>शुरुआती बिजनेस और प्रोफाइल के लिए</p>
+            <div class="price-amount">₹999 <span style="font-size:14px; color:var(--muted); font-weight:normal;">/ से शुरू</span></div>
+            <ul class="price-features">
+              <li><span>✓</span> सिंगल पेज लैंडिंग वेबसाइट</li>
+              <li><span>✓</span> मोबाइल और टैबलेट फ्रेंडली</li>
+              <li><span>✓</span> WhatsApp चैट इंटीग्रेशन</li>
+              <li><span>✓</span> बुनियादी SEO सेटअप</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline" style="width: 100%;">यह प्लान चुनें</a>
+          </div>
+
+          <!-- Professional (Popular) -->
+          <div class="card price-card" style="border-color: var(--primary);">
+            <div class="popular-badge">सबसे लोकप्रिय</div>
+            <h3>प्रो बिजनेस</h3>
+            <p>ग्रोथ कर रहे व्यवसायों के लिए</p>
+            <div class="price-amount">₹2,499 <span style="font-size:14px; color:var(--muted); font-weight:normal;">/ से शुरू</span></div>
+            <ul class="price-features">
+              <li><span>✓</span> मल्टी-पेज मॉडर्न वेबसाइट</li>
+              <li><span>✓</span> कस्टम डोमेन और होस्टिंग सेटअप</li>
+              <li><span>✓</span> हाई-स्पीड परफॉर्मेंस</li>
+              <li><span>✓</span> फ्री लोगो और बैनर डिजाइन</li>
+              <li><span>✓</span> 1 महीना फ्री मेंटेनेंस</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary" style="width: 100%;">यह प्लान चुनें</a>
+          </div>
+
+          <!-- Custom -->
+          <div class="card price-card">
+            <h3>कस्टम सॉल्यूशन</h3>
+            <p>विशिष्ट और बड़े प्रोजेक्ट्स के लिए</p>
+            <div class="price-amount">कस्टम</div>
+            <ul class="price-features">
+              <li><span>✓</span> कस्टम वेब ऐप्लिकेशन / टूल्स</li>
+              <li><span>✓</span> API और डेटाबेस इंटीग्रेशन</li>
+              <li><span>✓</span> पूर्ण ब्रांडिंग पैकेज</li>
+              <li><span>✓</span> प्रायोरिटी 24/7 सपोर्ट</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline" style="width: 100%;">बातचीत करें</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Customer Reviews Section -->
+    <section id="reviews" style="background: rgba(10, 18, 33, 0.4);">
+      <div class="container">
+        <h2 class="section-title">क्लाइंट्स की राय</h2>
+        <p class="section-subtitle">
+          जिन लोगों ने हमारे साथ काम किया, उनका अनुभव कैसा रहा।
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <div class="stars">★★★★★</div>
+            <p>"SEJU Business ने हमारे बिजनेस के लिए बहुत ही शानदार वेबसाइट बनाई। काम समय पर हुआ और डिजाइन बहुत प्रीमियम है।"</p>
+            <div class="review-user">
+              <div class="user-avatar">R</div>
+              <div class="user-info">
+                <h4>राहुल शर्मा</h4>
+                <span>लोकल स्टोर ओनर</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="stars">★★★★★</div>
+            <p>"काम करने का तरीका बहुत प्रोफेशनल है। WhatsApp बटन और मोबाइल लेआउट से हमारे नए कस्टमर्स काफी बढ़े हैं।"</p>
+            <div class="review-user">
+              <div class="user-avatar">A</div>
+              <div class="user-info">
+                <h4>अमित पटेल</h4>
+                <span>डिजिटल क्रिएटर</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="stars">★★★★★</div>
+            <p>"किफायती कीमत में इतना बेहतरीन काम मिलना मुश्किल है। सपोर्ट और सर्विस दोनों बहुत बढ़िया हैं।"</p>
+            <div class="review-user">
+              <div class="user-avatar">V</div>
+              <div class="user-info">
+                <h4>विकास सिंह</h4>
+                <span>स्टार्टअप फाउंडर</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -420,10 +643,10 @@
       <div class="container about-box">
         <h2 class="section-title">हमारे बारे में</h2>
         <p>
-          SEJU Business का एकमात्र उद्देश्य उद्यमियों और ग्राहकों को सरल, पारदर्शी और भरोसेमंद डिजिटल समाधान उपलब्ध कराना है।
+          SEJU Business का एकमात्र उद्देश्य उद्यमियों और छोटे-बड़े व्यवसायों को सरल, पारदर्शी और भरोसेमंद डिजिटल समाधान उपलब्ध कराना है।
         </p>
         <p>
-          हम गुणवत्ता और परिणाम को प्राथमिकता देते हैं ताकि आपका बिजनेस सिर्फ दिखे ही नहीं, बल्कि लगातार ग्रो भी करे।
+          हम गुणवत्ता और परिणाम को प्राथमिकता देते हैं ताकि आपका बिजनेस सिर्फ इंटरनेट पर दिखे ही नहीं, बल्कि लगातार नए ग्राहकों तक पहुंचे।
         </p>
       </div>
     </section>
